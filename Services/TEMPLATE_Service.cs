@@ -67,6 +67,7 @@ public class TripService : ITripService
 
             trips.Find(e => e.IdTrip.Equals(idTrip)).Client_Trips.Add(client_trip);
 
+            DODAWANIE DO BAZY DANYCH
             _context.Add(new Client
             {
                 IdClient = idClient,
@@ -77,6 +78,8 @@ public class TripService : ITripService
                 Telephone = client.Telephone,
                 Client_Trips = new[] { client_trip }
             });
+            
+            ZATWIERDZANIE ZMIAN W BAZIE PRZY UPDATE CZY DELETE
             await _context.SaveChangesAsync();
 
             return true;
@@ -95,8 +98,11 @@ public class TripService : ITripService
 
             clients.Find(e => e.Pesel.Equals(client.Pesel)).Client_Trips.Add(client_trip);
             trips.Find(e => e.IdTrip.Equals(idTrip)).Client_Trips.Add(client_trip);
+            
+            ZATWIERDZANIE ZMIAN W BAZIE PRZY UPDATE CZY DELETE
             await _context.SaveChangesAsync();
-
+            
+            
             return true;
         }
     }

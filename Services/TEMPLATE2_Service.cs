@@ -1,4 +1,4 @@
-﻿using APBD_6.Context;
+﻿/*using APBD_6.Context;
 using APBD5.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.CompilerServices;
@@ -11,11 +11,11 @@ public interface IClientService
     Task<bool> RemoveClient(int idClient);
 }
 
-public class ClientService : IClientService
+public class TEMPLATE2_Service : IClientService
 {
     private readonly NAZWA_Context _context;
 
-    public ClientService(NAZWA_Context context)
+    public TEMPLATE2_Service(NAZWA_Context context)
     {
         _context = context;
     }
@@ -31,11 +31,13 @@ public class ClientService : IClientService
         if (IntegerType.FromObject(result.FirstOrDefault()) == 0)
             if (clients.Find(e => e.IdClient == idClient) != null)
             {
+                REMOVE Z BAZY DANYCH
                 _context.Remove(_context.Clients.Single(a => a.IdClient == idClient));
+                ZATWIERDZANIE ZMIAN W BAZIE PRZY UPDATE CZY DELETE
                 await _context.SaveChangesAsync();
                 return true;
             }
 
         return false;
     }
-}
+}*/
